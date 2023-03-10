@@ -36,5 +36,4 @@ public class Customer {
     @OneToMany
     @JoinColumn(name = "customer_id")
     private List<Project> projects;
-
 }

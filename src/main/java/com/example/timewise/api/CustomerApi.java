@@ -16,7 +16,6 @@ public class CustomerApi {
     @Autowired
     private CustomerService service;
 
-
     @PostMapping
     public String save(@RequestBody Customer customer) {
         service.save(customer);

@@ -2,7 +2,6 @@ package com.example.timewise.service;
 
 import com.example.timewise.model.TimeSheet;
 import com.example.timewise.repository.TimeSheetRepository;
-import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

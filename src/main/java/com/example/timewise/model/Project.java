@@ -32,5 +32,4 @@ public class Project {
 
     @Column(name = "active")
     private Boolean active;
-
 }

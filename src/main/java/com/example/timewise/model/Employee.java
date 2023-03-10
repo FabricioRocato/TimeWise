@@ -36,5 +36,4 @@ public class Employee {
 
     @Column(name = "supervisor")
     private Boolean supervisor;
-
 }
