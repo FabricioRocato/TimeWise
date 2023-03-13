@@ -1,14 +1,24 @@
 package com.example.timewise.controller;
 
-import org.springframework.security.core.Authentication;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HomeController {
 
-    @GetMapping("/")
-    public String home(Authentication authenticatoin) {
-        return "Hello, " + authenticatoin.getName();
-    }
+   @GetMapping
+    public String home(){
+       return "Hello World";
+   }
+    @PreAuthorize("hasRole('ROLE_USER')")
+    @GetMapping("/user")
+    public String User() {
+       return "Hello User";
+   }
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+   @GetMapping("/admin")
+    public String admin() {
+       return "Hello Admin";
+   }
 }

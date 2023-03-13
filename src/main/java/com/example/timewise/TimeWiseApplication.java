@@ -12,4 +12,5 @@ public class TimeWiseApplication {
     public static void main(String[] args) {
         SpringApplication.run(TimeWiseApplication.class, args);
     }
+
 }
