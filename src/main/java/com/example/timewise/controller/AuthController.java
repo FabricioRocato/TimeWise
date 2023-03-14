@@ -1,6 +1,8 @@
 package com.example.timewise.controller;
 
 import com.example.timewise.model.LoginRequest;
+import com.example.timewise.model.User;
+import com.example.timewise.service.JpaUserDetailsService;
 import com.example.timewise.service.TokenService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,13 +25,11 @@ public class AuthController {
     }
 
     @PostMapping("/token")
-    public String Token(@RequestBody Authentication authentication){
-        LOG.debug("Token requested for user: '{}'", authentication.getName());
-//        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(userLogin.username(), userLogin.password()));
-        String token = tokenService.generateToken(authentication);
-        LOG.debug("Token granted: {}", token);
+    public String Token(@RequestBody User userLogin){
+//        LOG.debug("Token requested for user: '{}'", authentication.getName());
+//        LOG.debug("Token granted: {}", token);
+        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(userLogin.getUsername(), userLogin.getPassword()));
         return tokenService.generateToken(authentication);
 
     }
-
 }
