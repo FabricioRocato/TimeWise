@@ -3,12 +3,14 @@ package com.example.timewise.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
 import lombok.Setter;
 
 import java.util.List;
 
 @Setter
 @Entity
+@Getter
 @Table(name = "employee")
 public class Employee {
     @Id
