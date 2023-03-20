@@ -1,27 +1,36 @@
-package com.example.timewise.model;
+package com.example.timewise.service;
 
+import com.example.timewise.model.Role;
+import com.example.timewise.model.User;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import java.util.Arrays;
+
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+import java.util.Set;
 
+@Getter
+@Setter
+public class MyCustomUserDetails implements UserDetails {
 
-public class SecurityUser implements UserDetails {
+    private User user;
 
-    public User user;
-
-    public SecurityUser(User user) {
+    public MyCustomUserDetails(User user){
         this.user = user;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Arrays.stream(user
-                .getRoles()
-                .split(","))
-                .map(SimpleGrantedAuthority::new)
-                .toList();
+        Set<Role> roleSet = user.getRoleSet();
+        List<SimpleGrantedAuthority> simpleGrantedAuthorityList = new ArrayList<>();
+        for(Role role: roleSet){
+            simpleGrantedAuthorityList.add(new SimpleGrantedAuthority(role.getName()));
+        }
+        return simpleGrantedAuthorityList;
     }
 
     @Override
@@ -53,4 +62,5 @@ public class SecurityUser implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
 }
