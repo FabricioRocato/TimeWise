@@ -9,7 +9,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
-
 import java.io.IOException;
 import java.util.logging.Filter;
 import java.util.logging.LogRecord;
@@ -34,7 +33,6 @@ public class CorsFilters implements Filter {
             chain.doFilter(req, res);
         }
     }
-
     @Override
     public boolean isLoggable(LogRecord record) {
         return false;

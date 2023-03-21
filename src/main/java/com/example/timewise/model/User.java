@@ -1,15 +1,10 @@
-package com.example.timewise.user;
+package com.example.timewise.model;
 
 import com.example.timewise.token.Token;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import java.util.Collection;
 import java.util.List;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -33,6 +28,10 @@ public class User implements UserDetails {
     private String lastname;
     private String email;
     private String password;
+
+    @NotNull
+    @Column(name = "active")
+    private Boolean active;
 
     @Enumerated(EnumType.STRING)
     private Role role;

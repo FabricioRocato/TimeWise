@@ -1,5 +1,6 @@
-package com.example.timewise.user;
+package com.example.timewise.repository;
 
+import com.example.timewise.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

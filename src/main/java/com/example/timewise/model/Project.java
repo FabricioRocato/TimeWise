@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -32,4 +33,11 @@ public class Project {
 
     @Column(name = "active")
     private Boolean active;
+
+    @ManyToMany
+    @JoinTable(
+            name = "project_supervisors",
+            joinColumns = @JoinColumn(name = "project_id"),
+            inverseJoinColumns = @JoinColumn(name = "employee_id"))
+    private List<Employee> employees;
 }

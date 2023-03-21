@@ -28,10 +28,10 @@ public class EmployeeApi {
     }
 
     @GetMapping("/v2/get-list")
-    public Page<Employee> getListEmployee(@RequestParam String searchTerm,
+    public Page<Employee> findByNameV2(@RequestParam String searchTerm,
                                           @RequestParam(name = "pageNumber", defaultValue = "0") Integer pageNumber,
                                           @RequestParam(name = "pageSize", defaultValue = "10") Integer pageSize) {
-        return service.getListEmployee(pageNumber, pageSize, searchTerm);
+        return service.findByNameV2(pageNumber, pageSize, searchTerm);
     }
 
     @GetMapping("/v2/supervisor")

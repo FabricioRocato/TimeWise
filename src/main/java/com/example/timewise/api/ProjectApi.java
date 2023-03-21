@@ -33,7 +33,7 @@ public class ProjectApi {
     @PutMapping
     public String update(@RequestBody Project project) {
         service.save(project);
-        return "Project with success";
+        return "Project updated with success";
     }
 
     @DeleteMapping("/{projectId}")

@@ -3,6 +3,7 @@ package com.example.timewise.Config;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -27,6 +28,11 @@ public class SecurityConfig {
                 .csrf()
                 .disable()
                 .authorizeHttpRequests()
+                .requestMatchers(HttpMethod.POST,"/project").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.PUT,"/timesheet").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.POST,"/employee").hasAnyRole("ADMIN", "SUPERVISOR")
+                .requestMatchers(HttpMethod.POST,"/customer").hasAnyRole("ADMIN", "SUPERVISOR")
+                .requestMatchers(HttpMethod.GET,"/employee/v2").hasAnyRole("ADMIN" , "USER", "SUPERVISOR")
                 .requestMatchers("/api/v1/auth/**")
                 .permitAll()
                 .anyRequest()
@@ -40,9 +46,7 @@ public class SecurityConfig {
                 .logout()
                 .logoutUrl("/api/v1/auth/logout")
                 .addLogoutHandler(logoutHandler)
-                .logoutSuccessHandler((request, response, authentication) -> SecurityContextHolder.clearContext())
-        ;
-
+                .logoutSuccessHandler((request, response, authentication) -> SecurityContextHolder.clearContext());
         return http.build();
     }
 }

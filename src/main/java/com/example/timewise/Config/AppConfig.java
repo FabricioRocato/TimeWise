@@ -1,6 +1,6 @@
 package com.example.timewise.Config;
 
-import com.example.timewise.user.UserRepository;
+import com.example.timewise.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

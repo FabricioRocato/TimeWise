@@ -24,9 +24,9 @@ public class EmployeeService {
         return repository.findByEmployee("%"+searchTerm+"%", PageRequest.of(pageNumber, pageSize));
     }
 
-    public Page<Employee> getListEmployee(Integer pageNumber, Integer pageSize, String searchTerm){
+    public Page<Employee> findByNameV2(Integer pageNumber, Integer pageSize, String searchTerm){
         searchTerm = Objects.nonNull(searchTerm) ? searchTerm : "";
-        return repository.getListEmployee("%"+searchTerm+"%",PageRequest.of(pageNumber, pageSize));
+        return repository.findByNameV2("%"+searchTerm+"%",PageRequest.of(pageNumber, pageSize));
     }
 
     public Page<Employee> findBySupervidor(Integer pageNumber, Integer pageSize, String searchTerm){
