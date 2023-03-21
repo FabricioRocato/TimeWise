@@ -4,6 +4,7 @@ import com.example.timewise.model.Employee;
 import com.example.timewise.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -43,5 +44,9 @@ public class EmployeeApi {
     public String deleteEmployee(@PathVariable Long employeeId) {
         service.deleteById(employeeId);
         return "Employee " + employeeId + " Was deleted";
+    }
+    @RequestMapping(value = "/alan", method = RequestMethod.GET)
+    public ResponseEntity findBySupervidor() {
+        return  ResponseEntity.ok("alan");
     }
 }
