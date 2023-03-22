@@ -1,6 +1,7 @@
-package com.example.timewise.token;
+package com.example.timewise.model;
 
 import com.example.timewise.model.User;
+import com.example.timewise.token.TokenType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

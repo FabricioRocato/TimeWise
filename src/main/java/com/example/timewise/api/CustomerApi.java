@@ -1,6 +1,7 @@
 package com.example.timewise.api;
 
 import com.example.timewise.model.Customer;
+import com.example.timewise.model.Project;
 import com.example.timewise.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -32,9 +33,16 @@ public class CustomerApi {
     public ResponseEntity findbyId(@PathVariable("id") Long id) {
         return  ResponseEntity.ok(service.findCustomerId(id));
     }
-    @RequestMapping(value = "/{customerId}", method = GET)
+    @DeleteMapping(value = "/{customerId}")
     public String deleteCustomer(@PathVariable Long customerId) {
         service.deleteById(customerId);
         return "Customer " + customerId + " Was deleted";
     }
+
+    @PutMapping
+    public String update(@RequestBody Customer customer) {
+        service.save(customer);
+        return "Customer updated with success";
+    }
+
 }

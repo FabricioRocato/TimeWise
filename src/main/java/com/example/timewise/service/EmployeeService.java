@@ -37,4 +37,7 @@ public class EmployeeService {
         repository.deleteById(employeeId);
     }
 
+    public Employee findByEmployeeid(Long employeeId) {
+      return repository.findByEmployeeid(employeeId);
+    }
 }

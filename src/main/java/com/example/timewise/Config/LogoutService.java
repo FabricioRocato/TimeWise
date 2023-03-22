@@ -1,6 +1,6 @@
 package com.example.timewise.Config;
 
-import com.example.timewise.token.TokenRepository;
+import com.example.timewise.repository.TokenRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;

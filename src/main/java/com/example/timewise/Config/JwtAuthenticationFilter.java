@@ -1,6 +1,6 @@
 package com.example.timewise.Config;
 
-import com.example.timewise.token.TokenRepository;
+import com.example.timewise.repository.TokenRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

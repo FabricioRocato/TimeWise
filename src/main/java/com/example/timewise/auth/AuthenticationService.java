@@ -1,8 +1,8 @@
 package com.example.timewise.auth;
 
 import com.example.timewise.Config.JwtService;
-import com.example.timewise.token.Token;
-import com.example.timewise.token.TokenRepository;
+import com.example.timewise.model.Token;
+import com.example.timewise.repository.TokenRepository;
 import com.example.timewise.token.TokenType;
 import com.example.timewise.model.Role;
 import com.example.timewise.model.User;

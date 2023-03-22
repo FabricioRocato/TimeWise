@@ -1,5 +1,6 @@
 package com.example.timewise.api;
 
+import com.example.timewise.model.Customer;
 import com.example.timewise.model.Employee;
 import com.example.timewise.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,8 +46,19 @@ public class EmployeeApi {
         service.deleteById(employeeId);
         return "Employee " + employeeId + " Was deleted";
     }
+
+    @GetMapping("/{employeeId}")
+    public Employee getEmployee(@PathVariable Long employeeId) {
+        return service.findByEmployeeid(employeeId);
+    }
     @RequestMapping(value = "/alan", method = RequestMethod.GET)
     public ResponseEntity findBySupervidor() {
         return  ResponseEntity.ok("alan");
+    }
+
+    @PutMapping
+    public String update(@RequestBody Employee employee) {
+        service.save(employee);
+        return "Employee updated with success";
     }
 }

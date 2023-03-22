@@ -1,10 +1,9 @@
 package com.example.timewise.model;
 
-import com.example.timewise.token.Token;
 import jakarta.persistence.*;
 import java.util.Collection;
 import java.util.List;
-import jakarta.validation.constraints.NotNull;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

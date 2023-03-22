@@ -1,5 +1,6 @@
 package com.example.timewise.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -32,7 +33,7 @@ public class Customer {
     @NotNull
     @Column(name = "active")
     private Boolean active;
-
+    @JsonIgnore
     @OneToMany
     @JoinColumn(name = "customer_id")
     private List<Project> projects;
