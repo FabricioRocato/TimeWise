@@ -16,11 +16,17 @@ public class DashBoardApi {
     @Autowired
     private TimeSheetService service;
 
-    @GetMapping("/employee")
-    public Page<TimeSheet> getTimeSheetByEmployee(@RequestParam(name = "pageNumber", defaultValue = "0") Integer pageNumber,
-                                                  @RequestParam(name = "pageSize", defaultValue = "10") Integer pageSize ){
-        return service.getTimeSheetByEmployee(pageNumber, pageSize);
+    @GetMapping("employee")
+    public Page<TimeSheet> findByEmployeeIdOrderByIdDesc(@RequestParam(value = "pageNumber", defaultValue = "0", required = false) int pageNumber,
+                                                         @RequestParam(value = "pageSize", defaultValue = "10", required = false) int pageSize,
+                                                         @RequestParam Long employee) {
+        return service.findByEmployeeIdOrderByIdDesc(pageNumber, pageSize, employee);
     }
-
+    @GetMapping("project")
+    public Page<TimeSheet> findByProjectIdOrderByIdDesc(@RequestParam(value = "pageNumber", defaultValue = "0", required = false) int pageNumber,
+                                                         @RequestParam(value = "pageSize", defaultValue = "10", required = false) int pageSize,
+                                                         @RequestParam Long employee) {
+        return service.findByProjectIdOrderByIdDesc(pageNumber, pageSize, employee);
+    }
 
 }

@@ -1,7 +1,7 @@
 package com.example.timewise.model;
 
 public enum Role {
-    USER,
+    ROLE_USER,
     ROLE_ADMIN,
-    SUPERVISOR
+    ROLE_SUPERVISOR
 }
